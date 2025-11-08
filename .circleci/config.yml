@@ -27,8 +27,11 @@ jobs:
       - run: node --version 
       - run: npm i -g @railway/cli
       - run:
-          name: Autenticación Railway
-          command: railway login --token $RAILWAY_TOKEN
+          name: Exportar token Railway
+          command: echo 'export RAILWAY_TOKEN=$RAILWAY_TOKEN' >> $BASH_ENV
+      - run:
+          name: Cargar entorno
+          command: source $BASH_ENV
       - run:
           name: Deploy to Railway App
           command: |
