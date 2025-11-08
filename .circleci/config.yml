@@ -30,6 +30,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
+            RAILWAY_TOKEN=30f3abda-e8d4-44ed-83e3-d7ae6f76d3b1 railway up --service=artistic-youthfulness --detach
 
 tags_only: &tags_only
   filters:
