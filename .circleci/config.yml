@@ -29,7 +29,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            railway up --service=artistic-youthfulness --yes
+            railway up --service=artistic-youthfulness -- --yes
             railway up --detach
 
 tags_only: &tags_only
