@@ -17,13 +17,12 @@ prepare_venv: &prepare_venv
 
 jobs:
   deploy_app_to_railway:
-    <<: *defaults
+    docker:
+      - image: cimg/node:20.9
+    working_directory: ~/project
     steps:
-      - checkout:
-          path: ~/project/
-      - node/install:
-          node-version: '20.9'
-      - run: node --version 
+      - checkout
+      - run: node --version
       - run: npm i -g @railway/cli
       - run:
           name: Verificar token Railway
@@ -32,9 +31,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            railway up --service=artistic-youthfulness
-            railway up --detach
-
+            railway up --service=artistic-youthfulness --detach
 
 tags_only: &tags_only
   filters:
