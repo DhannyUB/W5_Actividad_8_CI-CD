@@ -32,7 +32,7 @@ jobs:
           name: Deploy to Railway App
           command: |
             cd bankchurn-api
-            railway up --service=artistic-youthfulness --detach
+            railway up --service=amiable-reprieve --detach
 
 
 tags_only: &tags_only
